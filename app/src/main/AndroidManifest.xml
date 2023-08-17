@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault">
 
+        <activity
+            android:name="com.writenow.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+
+        </activity>
+
     </application>
 
 </manifest>
