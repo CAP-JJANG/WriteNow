@@ -1,7 +1,8 @@
-package com.writenow
+package com.writenow.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.writenow.R
 
 class MainActivity : AppCompatActivity(){
 
