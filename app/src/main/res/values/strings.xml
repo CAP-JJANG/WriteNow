@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Writenow</string>
+
+    <!-- dialog_action_cmd -->
+    <string name="info_cmd">%s 명령어를\n실행하시겠습니까?</string>
+
+    <!-- dialog_action_text -->
+    <string name="copy_text">텍스트 복사하기</string>
+    <string name="send_msg">메세지로 보내기</string>
+
 </resources>
