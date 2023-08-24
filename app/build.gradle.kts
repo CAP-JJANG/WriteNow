@@ -40,6 +40,12 @@ android {
 }
 
 dependencies {
+    // retrofit2
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // Gson 변환기
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+
     // TedPermission
     implementation("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
 
