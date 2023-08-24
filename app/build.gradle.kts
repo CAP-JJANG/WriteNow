@@ -45,13 +45,15 @@ dependencies {
     // Gson 변환기
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-
     // TedPermission
     implementation("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
 
     // navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
+
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
 
 
     implementation("com.google.android.material:material:1.5.0")
