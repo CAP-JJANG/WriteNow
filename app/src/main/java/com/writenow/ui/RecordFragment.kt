@@ -16,6 +16,9 @@ import com.example.writenow_watch.apiManager.RecordApiManager
 import com.writenow.R
 import com.writenow.base.BaseFragment
 import com.writenow.databinding.FragmentRecordBinding
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileInputStream
 import java.io.IOException
 
 class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_record) {
@@ -143,6 +146,28 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
 
     private fun stopRecording() {
         mediaRecorder = null
+    }
+
+    private fun mediaRecorderToByteArray(outputFile: String): ByteArray? {
+        val file = File(outputFile)
+        if (!file.exists()) {
+            return null
+        }
+
+        val inputStream = FileInputStream(file)
+        val buffer = ByteArrayOutputStream()
+
+        inputStream.use { input ->
+            buffer.use { output ->
+                val data = ByteArray(1024)
+                var count: Int
+                while (input.read(data).also { count = it } != -1) {
+                    output.write(data, 0, count)
+                }
+                output.flush()
+            }
+        }
+        return buffer.toByteArray()
     }
 
 }
