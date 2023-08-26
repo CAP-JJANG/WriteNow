@@ -6,12 +6,14 @@ import android.content.res.ColorStateList
 import android.media.MediaRecorder
 import android.os.Build
 import android.os.Environment
+import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import com.example.writenow.model.RecordModel
 import com.example.writenow_watch.apiManager.RecordApiManager
 import com.writenow.R
 import com.writenow.base.BaseFragment
@@ -20,6 +22,7 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
+import java.time.LocalDateTime
 
 class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_record) {
     private var mediaRecorder: MediaRecorder? = null
@@ -129,6 +132,14 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
                         stop()
                         release()
 
+                        // 서버 전송
+                        val previous = LocalDateTime.now()
+                        val byteArray = mediaRecorderToByteArray(fileName)
+                        val recordModel = byteArray?.let { RecordModel(it) }
+                        if (recordModel != null) {
+                            apiManager?.getData(recordModel, previous)
+                            Log.d("sendFile", "MediaRecorder: $mediaRecorder, 이름: $fileName")
+                        }
                         mediaRecorder = null
                     }
                 }
