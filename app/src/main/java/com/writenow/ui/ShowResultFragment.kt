@@ -1,5 +1,6 @@
 package com.writenow.ui
 
+import androidx.fragment.app.setFragmentResultListener
 import com.writenow.R
 import com.writenow.base.BaseFragment
 import com.writenow.databinding.FragmentShowResultBinding
@@ -8,6 +9,16 @@ class ShowResultFragment : BaseFragment<FragmentShowResultBinding>(R.layout.frag
     private lateinit var recordResult:String
     private lateinit var cmdResult:String
     private var text:String = ""
+
+    override fun initDataBinding() {
+        super.initDataBinding()
+
+        // RecordFragment로 부터 데이터 받음
+        setFragmentResultListener("recordResult") { _, bundle ->
+            recordResult = bundle.getString("result").toString()
+            binding.tvResult.text = recordResult
+        }
+    }
 
     override fun initAfterBinding() {
         super.initAfterBinding()
