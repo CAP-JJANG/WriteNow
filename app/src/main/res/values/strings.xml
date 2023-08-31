@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Writenow</string>
 
+    <string name="text_on">버튼을 눌러\n음성 인식을 시작합니다.</string>
+    <string name="text_off">녹음 버튼을 누르면 음향 신호 음식이 중지됩니다.</string>
+    <string name="cmd_on">녹음 버튼을 누르면 음향 신호 인식을 시작합니다.</string>
+    <string name="cmd_off">녹음 버튼을 누르면 음향 신호 음식이 중지되며 명령어가 실행됩니다.</string>
+
     <!-- dialog_action_cmd -->
     <string name="info_cmd">%s 명령어를\n실행하시겠습니까?</string>
 
