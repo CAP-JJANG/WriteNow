@@ -14,6 +14,7 @@ import com.writenow.databinding.FragmentShowResultBinding
 class ShowResultFragment : BaseFragment<FragmentShowResultBinding>(R.layout.fragment_show_result) {
     private lateinit var recordResult:String
     private lateinit var cmdResult:String
+    private var text:String = ""
 
     override fun initDataBinding() {
         super.initDataBinding()
@@ -67,7 +68,6 @@ class ShowResultFragment : BaseFragment<FragmentShowResultBinding>(R.layout.frag
         }
 
         binding.btnDoAction.setOnClickListener{
-            //ActionTextDialog().show(parentFragmentManager, "actionText")
             if (recordResult=="sos")
                 ActionCmdDialog(recordResult).show(parentFragmentManager, "actionCmd")
             else

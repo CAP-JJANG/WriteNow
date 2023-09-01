@@ -31,8 +31,6 @@ class RecordApiManager {
     }
 
     init {
-        // http://192.168.47.145:8000
-        // https://jsonplaceholder.typicode.com
         retrofit = Retrofit.Builder()
             .baseUrl("http://172.20.10.14:8000")
             .addConverterFactory(GsonConverterFactory.create())
@@ -61,8 +59,6 @@ class RecordApiManager {
                     val hours = duration.toHours()
                     val minutes = duration.toMinutes() % 60
                     val seconds = duration.seconds % 60
-
-                    println("시간 차: $hours 시간 $minutes 분 $seconds 초")
                 } else {
                     Log.d("resultt", "실패")
                 }

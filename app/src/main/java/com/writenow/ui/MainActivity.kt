@@ -9,7 +9,6 @@ import com.writenow.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(){
     private lateinit var navController: NavController
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

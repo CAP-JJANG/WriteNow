@@ -26,7 +26,7 @@ class ActionTextDialog(txt:String): BaseDialogFragment<DialogActionTextBinding>(
     private lateinit var name:String
     private lateinit var phone:String
 
-    private var requestLauncher: ActivityResultLauncher<Intent> =
+    private var requestLauncher:ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ it ->
             if (it.resultCode == Activity.RESULT_OK) {
                 // 누른 주소록 정보 받아오기
