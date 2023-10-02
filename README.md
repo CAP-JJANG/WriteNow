@@ -3,7 +3,7 @@ WriteNow
 
 <br><br>
 ## :raised_hands: Introduction
-**[ENG]**
+**[ENG]**  
 It is a wearable application using CSD-Model.
 
 When using a small wearable device, have you ever experienced any inconvenience with a small keyboard panel?  
@@ -13,7 +13,7 @@ This allows you to enter letters into the device through a wide table instead of
 
 <br>
 
-**[KOR]**
+**[KOR]**  
 CSD-Model을 활용한 웨어러블 어플리케이션 입니다.
 
 소형 웨어러블 기기 사용 시, 작은 키보드 패널로 인해 입력에 불편함을 느낀적이 있으신가요?  
