@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.writenow.MyApplication.Companion.prefs
 import com.writenow.R
 import com.writenow.databinding.ActivityMainBinding
 
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity(){
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        prefs.setString("sosNumber", "112")
 
         val navHostFragment=supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
