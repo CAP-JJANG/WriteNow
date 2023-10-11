@@ -13,8 +13,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
-import com.example.writenow.model.RecordModel
-import com.example.writenow_watch.apiManager.RecordApiManager
+import com.writenow.model.RecordModel
+import com.writenow.apiManager.RecordApiManager
 import com.writenow.R
 import com.writenow.base.BaseFragment
 import com.writenow.databinding.FragmentRecordBinding

@@ -1,11 +1,12 @@
-package com.example.writenow_watch.apiManager
+package com.writenow.apiManager
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.writenow.model.*
-import com.example.writenow_watch.api.RecordService
+import com.writenow.api.RecordService
+import com.writenow.model.RecordModel
+import com.writenow.model.ResultModel
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import java.time.Duration
@@ -40,7 +41,7 @@ class RecordApiManager {
         retrofitService = retrofit?.create(RecordService::class.java)
     }
 
-    fun getData(recordData:RecordModel, previous:LocalDateTime) {
+    fun getData(recordData: RecordModel, previous:LocalDateTime) {
         val resultData: Call<ResultModel>? = retrofitService?.postRecord(recordData)
         resultData?.enqueue(object : Callback<ResultModel> {
             override fun onResponse(
@@ -48,7 +49,7 @@ class RecordApiManager {
                 response: Response<ResultModel>
             ) {
                 if (response.isSuccessful) {
-                    val result:ResultModel = response.body()!!
+                    val result: ResultModel = response.body()!!
                     Log.d("resultt", resultLivedata.toString())
                     if (_resultLivedata.value==null)
                         _resultLivedata.postValue(result.predicted_alphabet)
