@@ -2,13 +2,14 @@ package com.writenow
 
 import android.app.Application
 
-class MyApplication : Application() {
+class MyApplication: Application() {
     companion object {
-        lateinit var prefs: SharedPreferences
+        lateinit var prefs: MySharedPreferences
     }
 
     override fun onCreate() {
-        prefs = SharedPreferences(applicationContext)
+        prefs = MySharedPreferences(applicationContext)
         super.onCreate()
+        MyApplication.prefs.removeAll()
     }
 }

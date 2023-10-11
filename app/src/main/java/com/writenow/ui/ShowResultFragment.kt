@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
+import com.writenow.MyApplication.Companion.prefs
 import com.writenow.R
 import com.writenow.base.BaseFragment
 import com.writenow.databinding.FragmentShowResultBinding
@@ -34,7 +35,7 @@ class ShowResultFragment : BaseFragment<FragmentShowResultBinding>(R.layout.frag
                 Log.d("cmdDo","실행")
 
                 // 어디에 전화를 걸건지 text 정보 받기
-                val input = getString(R.string.sos)
+                val input = prefs.getString("sos", "112")
                 val permissionListener = object : PermissionListener {
                     override fun onPermissionGranted() {
                         val myUri = Uri.parse("tel:${input}")

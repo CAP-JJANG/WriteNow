@@ -3,9 +3,8 @@ package com.writenow
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import androidx.core.content.edit
 
-class SharedPreferences(context : Context) {
+class MySharedPreferences(context : Context) {
     private val prefs: SharedPreferences =
         context.getSharedPreferences("prefs_name", Context.MODE_PRIVATE)
 
