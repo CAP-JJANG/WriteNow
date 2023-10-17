@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.writenow.api.RecordService
+import com.writenow.model.GetTestModel
 import com.writenow.model.RecordModel
 import com.writenow.model.ResultModel
 import retrofit2.*
@@ -32,13 +33,36 @@ class RecordApiManager {
     }
 
     init {
+        // https://jsonplaceholder.typicode.com/posts
+        // http://54.180.116.175
         retrofit = Retrofit.Builder()
-            .baseUrl("http://172.20.10.14:8000")
+            .baseUrl("https://jsonplaceholder.typicode.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        Log.d("retrofitt","init")
         retrofitService = retrofit?.create(RecordService::class.java)
+    }
+
+    fun getTest() {
+        val resultData: Call<ArrayList<GetTestModel>>? = retrofitService?.getTest()
+        resultData?.enqueue(object : Callback<ArrayList<GetTestModel>> {
+            override fun onResponse(
+                call: Call<ArrayList<GetTestModel>>,
+                response: Response<ArrayList<GetTestModel>>
+            ) {
+                if (response.isSuccessful) {
+                    val result: ArrayList<GetTestModel> = response.body()!!
+                    Log.d("resultt", result[0].toString())
+                } else {
+                    Log.d("resultt_실패", response.code().toString())
+                }
+            }
+
+            override fun onFailure(call: Call<ArrayList<GetTestModel>>, t: Throwable) {
+                t.printStackTrace()
+                Log.d("resultt_실패", resultData.toString())
+            }
+        })
     }
 
     fun getData(recordData: RecordModel, previous:LocalDateTime) {
@@ -51,10 +75,12 @@ class RecordApiManager {
                 if (response.isSuccessful) {
                     val result: ResultModel = response.body()!!
                     Log.d("resultt", resultLivedata.toString())
+
                     if (_resultLivedata.value==null)
                         _resultLivedata.postValue(result.predicted_alphabet)
                     else
                         _resultLivedata.postValue(_resultLivedata.value+result.predicted_alphabet)
+
                     val now = LocalDateTime.now()
                     val duration = Duration.between(previous, now)
                     val hours = duration.toHours()
@@ -67,7 +93,7 @@ class RecordApiManager {
 
             override fun onFailure(call: Call<ResultModel>, t: Throwable) {
                 t.printStackTrace()
-                Log.d("resultt","통신 실패")
+                Log.d("resultt_실패", resultData.toString())
             }
         })
     }

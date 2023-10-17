@@ -19,8 +19,6 @@ import androidx.navigation.fragment.findNavController
 
 abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
     DialogFragment() {
-
-    // protected abstract val viewModel: VM
     protected lateinit var binding: B
     protected lateinit var navController: NavController
 
@@ -86,10 +84,4 @@ abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val 
             window?.setLayout(x, y)
         }
     }
-    /* 다이얼로그 프래그먼트에서 사용시.
-    * override fun onResume() {
-	* 	super.onResume()
-	* 	context?.dialogFragmentResize(this@CustomDialogFragment, 0.9f, 0.9f)
-	* }
-    * */
 }

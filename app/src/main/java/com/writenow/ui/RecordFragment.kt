@@ -149,11 +149,10 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED
 
-                // 권한 부여 되지 않았을경우
-                if (isEmpower) {
+                if (isEmpower) { // 권한 부여 되지 않았을경우
                     empowerRecordAudioAndWriteReadStorage()
-                    // 권한 부여 되었을 경우
-                } else {
+                }
+                else { // 권한 부여 되었을 경우
                     isRecording = true
                     binding.btnRecord.backgroundTintList = when (isRecording) {
                         false -> ColorStateList.valueOf(
@@ -224,6 +223,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
                         val recordModel = byteArray?.let { RecordModel(it) }
                         if (recordModel != null) {
                             apiManager?.getData(recordModel, previous)
+                            Log.d("sendByte", recordModel.recordData.toString())
                             Log.d("sendFile", "MediaRecorder: $mediaRecorder, 이름: $fileName")
                         }
                         mediaRecorder = null
