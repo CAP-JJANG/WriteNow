@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:fontFamily="@font/gmarketsans_medium"
+                android:fontFamily="@font/nanumsquareround_r"
                 android:lineHeight="16sp"
                 android:text="@string/info_cmd"
                 android:textAlignment="center"
@@ -47,10 +47,10 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/radius5"
                     android:backgroundTint="@color/black"
-                    android:fontFamily="@font/gmarketsans_medium"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:text="실행"
                     android:textColor="@color/white"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/btn_cancel_cmd"
@@ -58,10 +58,10 @@
                     android:layout_height="30dp"
                     android:background="@drawable/radius5"
                     android:backgroundTint="@color/mainLightGray"
-                    android:fontFamily="@font/gmarketsans_medium"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:text="취소"
                     android:textColor="@color/white"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
