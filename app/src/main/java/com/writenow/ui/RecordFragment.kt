@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.media.MediaRecorder
-import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.ContactsContract
@@ -102,6 +101,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
         apiManager?.resultLivedata?.observe(viewLifecycleOwner) {
             if (isRecording) {
                 binding.tvResultingRecord.text = it
+                Toast.makeText(context, "녹음을 시작합니다.", Toast.LENGTH_SHORT).show()
                 startRecording()
             }
         }
@@ -134,9 +134,10 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
             if (isRecording) {
                 isRecording = false
                 stopRecording()
+                // binding.tvResultingRecord.text
                 setFragmentResult(
                     "recordResult",
-                    bundleOf("result" to binding.tvResultingRecord.text)
+                    bundleOf("result" to "sos")
                 )
                 navController.navigate(R.id.action_recordFragment_to_showResultFragment)
             } else {
@@ -222,8 +223,8 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
                         val byteArray = mediaRecorderToByteArray(fileName)
                         val recordModel = byteArray?.let { RecordModel(it) }
                         if (recordModel != null) {
-                            apiManager?.getData(recordModel, previous)
-                            Log.d("sendByte", recordModel.recordData.toString())
+                            apiManager?.postRecord(recordModel, previous)
+                            Log.d("sendByte", byteArray.toString())
                             Log.d("sendFile", "MediaRecorder: $mediaRecorder, 이름: $fileName")
                         }
                         mediaRecorder = null

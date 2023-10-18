@@ -34,9 +34,9 @@ class RecordApiManager {
 
     init {
         // https://jsonplaceholder.typicode.com/posts
-        // http://54.180.116.175
+        // http://15.164.224.196:8000
         retrofit = Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com")
+            .baseUrl("http://43.201.21.103:8000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -60,12 +60,13 @@ class RecordApiManager {
 
             override fun onFailure(call: Call<ArrayList<GetTestModel>>, t: Throwable) {
                 t.printStackTrace()
-                Log.d("resultt_실패", resultData.toString())
+                Log.d("resultt_통신 실패", resultData.toString())
             }
         })
     }
 
-    fun getData(recordData: RecordModel, previous:LocalDateTime) {
+    fun postRecord(recordData: RecordModel, previous:LocalDateTime) {
+        Log.d("resultt_request", recordData.toString())
         val resultData: Call<ResultModel>? = retrofitService?.postRecord(recordData)
         resultData?.enqueue(object : Callback<ResultModel> {
             override fun onResponse(
@@ -93,7 +94,7 @@ class RecordApiManager {
 
             override fun onFailure(call: Call<ResultModel>, t: Throwable) {
                 t.printStackTrace()
-                Log.d("resultt_실패", resultData.toString())
+                Log.d("resultt_통신실패", resultData.toString())
             }
         })
     }

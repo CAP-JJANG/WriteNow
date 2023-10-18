@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.android.gms.oss-licenses-plugin")
 }
 
 android {
@@ -40,6 +41,9 @@ android {
 }
 
 dependencies {
+    // OSS License
+    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
+
     // retrofit2
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // Gson 변환기

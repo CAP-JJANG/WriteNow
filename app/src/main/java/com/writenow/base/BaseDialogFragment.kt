@@ -46,7 +46,7 @@ abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val 
     ): View? {
         binding = DataBindingUtil.inflate(inflater, layoutResourceId, container, false)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) // 둥근 모서리 적용
-        //dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE) //android version 4.4 이하에서 blue line 생기는거 방지
+
         return binding.root
     }
 
