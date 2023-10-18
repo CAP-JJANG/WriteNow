@@ -20,14 +20,10 @@ import androidx.navigation.fragment.findNavController
 abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val layoutResourceId: Int) :
     DialogFragment() {
     protected lateinit var binding: B
-    protected lateinit var navController: NavController
+    private lateinit var navController: NavController
 
-
-    // * 레이아웃을 띄운 직후 호출. * 뷰나 액티비티의 속성 등을 초기화. * ex) 리사이클러뷰, 툴바, 드로어뷰..
     protected open fun initStartView() {}
-    // * 데이터 바인딩 설정.
     protected open fun initDataBinding() {}
-    // * 바인딩 이후에 할 일을 여기에 구현. * 그 외에 설정할 것이 있으면 이곳에서 설정. * 클릭 리스너도 이곳에서 설정.
     protected open fun initAfterBinding() {}
 
 
@@ -73,8 +69,8 @@ abstract class BaseDialogFragment <B: ViewDataBinding> (@LayoutRes private  val 
             val window = dialogFragment.dialog?.window
             val x = (size.x * width).toInt()
             val y = (size.y * height).toInt()
-            window?.setLayout(x, y)
 
+            window?.setLayout(x, y)
         } else {
             val rect = windowManager.currentWindowMetrics.bounds
             val window = dialogFragment.dialog?.window

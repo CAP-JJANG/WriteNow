@@ -9,7 +9,6 @@ buildscript {
     dependencies {
         // Add the dependency for the Google services Gradle plugin
         classpath("com.google.gms:google-services:4.3.14")
-        classpath("com.google.android.gms:oss-licenses-plugin:0.10.4")
     }
 }
 
