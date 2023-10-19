@@ -1,4 +1,4 @@
-[notice.md](https://github.com/CAP-JJANG/WriteNow/files/13038651/notice.md)## 🔥 Title
+## 🔥 Title
 WriteNow
 
 <br><br>
