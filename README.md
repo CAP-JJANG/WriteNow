@@ -23,6 +23,7 @@ Write Now는 이러한 불편함을 해소하기 위해 테이블을 하나의 �
 
 <br><br>
 ## 🔗 Project Structure
+![WriteNow 프로젝트 구조](https://github.com/CAP-JJANG/WriteNow/assets/92065911/386b8fec-048d-4fe9-b0f5-2787ab2a2edf)
 
 
 <br><br>
