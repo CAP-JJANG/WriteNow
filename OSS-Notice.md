@@ -1,6 +1,6 @@
 # OSS Notice | WriteNow #
 
-This application is Copyright © (owner name). All rights reserved.
+This application is Copyright © CAP-JJANG. All rights reserved.
 
 The following sets forth attribution notices for third party software that may be contained in this application.
 
@@ -133,9 +133,9 @@ limitations under the License.
 # SIL Open Font License 1.1 #
 
 ``````````
-Copyright (c) <dates>, <Copyright Holder> (<URL|email>),
+Copyright (c) 2010, NAVER Corporation (https://www.navercorp.com/),
 
-with Reserved Font Name <Reserved Font Name>. This Font Software is licensed under the SIL Open Font License, Version 1.1.
+with Reserved Font Name NanumSquareRound. This Font Software is licensed under the SIL Open Font License, Version 1.1.
 
 This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL SIL OPEN FONT LICENSE
 
