@@ -36,4 +36,5 @@ Write Now는 이러한 불편함을 해소하기 위해 테이블을 하나의 �
 
 
 <br><br>
-[OSS Notice](https://github.com/CAP-JJANG/WriteNow/blob/main/OSS-Notice.md)
+## 🤖 License
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/CAP-JJANG/WriteNow/blob/main/LICENSE) file for details.
