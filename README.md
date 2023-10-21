@@ -53,8 +53,29 @@ The default emergency contact is 112, and you can set up an emergency contact vi
 
 <br><br>
 ## 🔗 디렉터리 구조
-<img width="548" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/a43b6133-44fd-4385-ba8a-0e24739846db">
-
+```
+writenow
+├── MyApplication.kt
+├── MySharedPreferences.kt
+├── SplashActivity.kt
+├── api
+│   └── RecordService.kt
+├── apiManager
+│   └── RecordApiManager.kt
+├── base
+│   ├── BaseDialogFragment.kt
+│   └── BaseFragment.kt
+├── model
+│   ├── GetTestModel.kt
+│   ├── RecordModel.kt
+│   └── ResultModel.kt
+└── ui
+    ├── ActionCmdDialog.kt
+    ├── ActionTextDialog.kt
+    ├── MainActivity.kt
+    ├── RecordFragment.kt
+    └── ShowResultFragment.kt
+```
 
 <br><br>
 ## 👟 실행 방법
