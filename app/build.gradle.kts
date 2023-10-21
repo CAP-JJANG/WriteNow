@@ -49,13 +49,13 @@ dependencies {
     implementation("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
 
     // navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
 
     implementation("androidx.fragment:fragment-ktx:1.6.1")
 
     // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 
 
     implementation("com.google.android.material:material:1.5.0")
