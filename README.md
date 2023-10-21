@@ -1,7 +1,3 @@
-## 🔥 제목
-WriteNow
-
-<br><br>
 ## 🙌 소개
 **[ENG]**  
 It is a wearable application using CSD-Model.
@@ -67,9 +63,21 @@ The default emergency contact is 112, and you can set up an emergency contact vi
 
 <br><br>
 ## 👀 실행 화면
+* 음향 기반 입력을 하는 모습
+  
+* 인식된 텍스트를 복사하여 키보드처럼 사용 가능
+  
+* 인식된 텍스트를 메시지로 전송 가능
+  
+* SETTING SOS를 통해 긴급 연락처 설정
+  
+* 'sos'라고 입력했을 경우, 확인 버튼을 누르면 긴급 연락처로 전화 가능
 
+<br>
+<img width="906" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/e32f3f42-2cd6-4da4-8b82-fbf71987a0c1">
 
 
 <br><br>
 ## 🤖 라이센스
-This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/CAP-JJANG/WriteNow/blob/main/LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/CAP-JJANG/WriteNow/blob/main/LICENSE) file for details.  
+Attribution notices for third party software that may be contained in this application - see the [OSS Notice](https://github.com/CAP-JJANG/WriteNow/blob/main/OSS-Notice.md) file for details
