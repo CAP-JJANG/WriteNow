@@ -10,6 +10,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <!-- background -->
-        <item name="android:windowBackground">@drawable/loading</item>
+        <item name="android:windowBackground">@mipmap/ic_launcher_round</item>
     </style>
 </resources>

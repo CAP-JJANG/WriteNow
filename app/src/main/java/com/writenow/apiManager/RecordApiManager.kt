@@ -5,13 +5,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.writenow.api.RecordService
-import com.writenow.model.GetTestModel
 import com.writenow.model.RecordModel
 import com.writenow.model.ResultModel
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
-import java.time.Duration
-import java.time.LocalDateTime
 
 class RecordApiManager {
     private var retrofit: Retrofit? = null
@@ -33,40 +30,16 @@ class RecordApiManager {
     }
 
     init {
-        // https://jsonplaceholder.typicode.com/posts
-        // http://15.164.224.196:8000
         retrofit = Retrofit.Builder()
-            .baseUrl("http://43.201.21.103:8000")
+            .baseUrl("http://3.34.136.127:8000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         retrofitService = retrofit?.create(RecordService::class.java)
     }
 
-    fun getTest() {
-        val resultData: Call<ArrayList<GetTestModel>>? = retrofitService?.getTest()
-        resultData?.enqueue(object : Callback<ArrayList<GetTestModel>> {
-            override fun onResponse(
-                call: Call<ArrayList<GetTestModel>>,
-                response: Response<ArrayList<GetTestModel>>
-            ) {
-                if (response.isSuccessful) {
-                    val result: ArrayList<GetTestModel> = response.body()!!
-                    Log.d("resultt", result[0].toString())
-                } else {
-                    Log.d("resultt_실패", response.code().toString())
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<GetTestModel>>, t: Throwable) {
-                t.printStackTrace()
-                Log.d("resultt_통신 실패", resultData.toString())
-            }
-        })
-    }
-
-    fun postRecord(recordData: RecordModel, previous:LocalDateTime) {
-        Log.d("resultt_request", recordData.toString())
+    fun postRecord(recordData: RecordModel) {
+        Log.d("postRecord_request", recordData.toString())
         val resultData: Call<ResultModel>? = retrofitService?.postRecord(recordData)
         resultData?.enqueue(object : Callback<ResultModel> {
             override fun onResponse(
@@ -75,26 +48,20 @@ class RecordApiManager {
             ) {
                 if (response.isSuccessful) {
                     val result: ResultModel = response.body()!!
-                    Log.d("resultt", resultLivedata.toString())
+                    Log.d("postRecord_result", result.toString())
 
                     if (_resultLivedata.value==null)
                         _resultLivedata.postValue(result.predicted_alphabet)
                     else
                         _resultLivedata.postValue(_resultLivedata.value+result.predicted_alphabet)
-
-                    val now = LocalDateTime.now()
-                    val duration = Duration.between(previous, now)
-                    val hours = duration.toHours()
-                    val minutes = duration.toMinutes() % 60
-                    val seconds = duration.seconds % 60
                 } else {
-                    Log.d("resultt", "실패")
+                    Log.d("postRecord_result", "FAIL CODE: "+response.code())
                 }
             }
 
             override fun onFailure(call: Call<ResultModel>, t: Throwable) {
                 t.printStackTrace()
-                Log.d("resultt_통신실패", resultData.toString())
+                Log.d("postRecord_result", "API FAIL")
             }
         })
     }

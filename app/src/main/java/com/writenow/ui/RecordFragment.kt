@@ -7,6 +7,7 @@ import android.content.res.ColorStateList
 import android.media.MediaRecorder
 import android.os.Build
 import android.os.Environment
+import android.os.Handler
 import android.provider.ContactsContract
 import android.util.Log
 import android.view.Gravity
@@ -31,14 +32,13 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
+import java.time.Duration
 import java.time.LocalDateTime
 import java.util.Date
-
 
 class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_record) {
     private var mediaRecorder: MediaRecorder? = null
     private var isRecording: Boolean = false
-    private var fileName = ""
     private var filePath = ""
     private val apiManager = RecordApiManager.getInstance(context)
 
@@ -101,7 +101,6 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
         apiManager?.resultLivedata?.observe(viewLifecycleOwner) {
             if (isRecording) {
                 binding.tvResultingRecord.text = it
-                Toast.makeText(context, "녹음을 시작합니다.", Toast.LENGTH_SHORT).show()
                 startRecording()
             }
         }
@@ -134,10 +133,9 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
             if (isRecording) {
                 isRecording = false
                 stopRecording()
-                // binding.tvResultingRecord.text
                 setFragmentResult(
                     "recordResult",
-                    bundleOf("result" to "sos")
+                    bundleOf("result" to binding.tvResultingRecord.text)
                 )
                 navController.navigate(R.id.action_recordFragment_to_showResultFragment)
             } else {
@@ -181,8 +179,6 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
 
                     startRecording()
                 }
-
-
             }
         }
     }
@@ -200,8 +196,9 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
 
     @RequiresApi(Build.VERSION_CODES.S)
     private fun startRecording() {
-        fileName = Date().time.toString()+".aac"
-        filePath = Environment.getExternalStorageDirectory().absolutePath + "/Download/" + fileName
+        filePath = Environment.getExternalStorageDirectory().absolutePath + "/Download/" + Date().time.toString()+".aac"
+
+        Toast.makeText(context, "녹음을 시작합니다.", Toast.LENGTH_SHORT).show()
 
         mediaRecorder = MediaRecorder().apply {
             setAudioSource(MediaRecorder.AudioSource.MIC)
@@ -210,39 +207,33 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
             setAudioEncoder(MediaRecorder.AudioEncoder.AAC) // or MediaRecorder.AudioEncoder.DEFAULT
             setAudioSamplingRate(44100) // set the desired sampling rate
             setAudioEncodingBitRate(320000)
-            setMaxDuration(1500) // Set the maximum duration to 1.5 seconds
-
-            setOnInfoListener { _, what, _ ->
-                if (what == MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED) {
-                    mediaRecorder?.apply {
-                        stop()
-                        release()
-
-                        // 서버 전송
-                        val previous = LocalDateTime.now()
-                        val byteArray = mediaRecorderToByteArray(fileName)
-                        val recordModel = byteArray?.let { RecordModel(it) }
-                        if (recordModel != null) {
-                            apiManager?.postRecord(recordModel, previous)
-                            Log.d("sendByte", byteArray.toString())
-                            Log.d("sendFile", "MediaRecorder: $mediaRecorder, 이름: $fileName")
-                        }
-                        mediaRecorder = null
-                    }
-                }
-            }
 
             try {
                 prepare()
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+
             start()
-            fileName = filePath
         }
+
+        Handler().postDelayed({
+            stopRecording()
+
+            // 서버 전송
+            val byteArray = mediaRecorderToByteArray(filePath)
+            val recordModel = byteArray?.let { RecordModel(it) }
+            if (recordModel != null) {
+                apiManager?.postRecord(recordModel)
+            }
+        }, 2000)
     }
 
     private fun stopRecording() {
+        mediaRecorder?.apply {
+            stop()
+            release()
+        }
         mediaRecorder = null
     }
 
