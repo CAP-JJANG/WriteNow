@@ -1,8 +1,8 @@
-## 🔥 Title
+## 🔥 제목
 WriteNow
 
 <br><br>
-## :raised_hands: Introduction
+## 🙌 소개
 **[ENG]**  
 It is a wearable application using CSD-Model.
 
@@ -22,18 +22,54 @@ Write Now는 이러한 불편함을 해소하기 위해 테이블을 하나의 �
 이로써 작은 화면 대신, 넓은 테이블을 통해 기기에 글자를 입력할 수 있습니다.
 
 <br><br>
-## 🔗 Project Structure
+## 💪 주요 기능
+**[ENG]**  
+1. You can make sound-based input.
+2. You can copy recognized text and use it like a keyboard.
+3. You can send recognized text to a message.
+4. If you type 'sos', you can call an emergency contact by pressing the OK button.
+The default emergency contact is 112, and you can set up an emergency contact via 'SETTING SOS' on the start screen.
+
+<br>
+
+**[KOR]**  
+1. 음향 기반 입력을 할 수 있습니다.
+2. 인식된 텍스트를 복사하여 키보드처럼 사용할 수 있습니다.
+3. 인식된 텍스트를 메시지로 보낼 수 있습니다.
+4. 'sos'라고 입력했을 경우, 확인 버튼을 누르면 긴급 연락처로 전화할 수 있습니다.
+   기본 긴급 연락처는 112이며, 시작 화면에서 'SETTING SOS'를 통해 긴급 연락처를 설정할 수 있습니다.
+
+<br><br>
+## 🦾 주요 기술
+**Mobile - Android**
+* Android Studio: Giraffe | 2022.3.1
+* Gradle plugin: 8.1.1
+* JDK: jbr-17
+* Min SDK: 30
+* Retrofit: 2.9.0
+* Livedata: 2.6.2
+
+
+<br><br>
+## 🔗 서비스 아키텍처
 ![WriteNow 프로젝트 구조](https://github.com/CAP-JJANG/WriteNow/assets/92065911/386b8fec-048d-4fe9-b0f5-2787ab2a2edf)
 
 
 <br><br>
-## 👍 Main Features
-1. 음향 기반 입력을 할 수 있습니다.
-2. 인식된 텍스트를 복사하여 키보드처럼 사용할 수 있습니다.
-3. 인식된 텍스트를 메시지로 보낼 수 있습니다.
-4. sos라고 입력했을 경우, 확인 버튼을 누르면 긴급 연락처로 전화할 수 있습니다.
-   기본 긴급 연락처는 112이며, 시작 화면에서 'SETTING SOS'를 통해 긴급 연락처를 설정할 수 있습니다.
+## 🔗 디렉터리 구조
+<img width="548" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/a43b6133-44fd-4385-ba8a-0e24739846db">
 
 
 <br><br>
-[OSS Notice](https://github.com/CAP-JJANG/WriteNow/blob/main/OSS-Notice.md)
+## 👟 실행 방법
+
+
+
+<br><br>
+## 👀 실행 화면
+
+
+
+<br><br>
+## 🤖 라이센스
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/CAP-JJANG/WriteNow/blob/main/LICENSE) file for details.
