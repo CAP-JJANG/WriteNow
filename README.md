@@ -80,4 +80,4 @@ The default emergency contact is 112, and you can set up an emergency contact vi
 <br><br>
 ## 🤖 라이센스
 This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/CAP-JJANG/WriteNow/blob/main/LICENSE) file for details.  
-Attribution notices for third party software that may be contained in this application - see the [OSS Notice](https://github.com/CAP-JJANG/WriteNow/blob/main/OSS-Notice.md) file for details
+[OSS Notice](https://github.com/CAP-JJANG/WriteNow/blob/main/OSS-Notice.md) sets forth attribution notices for third party software that may be contained in this application.
