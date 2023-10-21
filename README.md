@@ -83,8 +83,13 @@ writenow
 
 <br><br>
 ## 👟 실행 방법
+**[ENG]**  
+[Install apk files](https://github.com/CAP-JJANG/WriteNow/blob/37bfebba105667258906238c51cd72c422ac3fe0/WriteNow.apk) and run on Android 11.0 Wear OS 3 and later devices  
 
+<br>
 
+**[KOR]**  
+Android 11.0 Wear OS 3 이상 기기에 [apk 파일 설치](https://github.com/CAP-JJANG/WriteNow/blob/37bfebba105667258906238c51cd72c422ac3fe0/WriteNow.apk) 후 실행
 
 <br><br>
 ## 👀 실행 화면
