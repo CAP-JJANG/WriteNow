@@ -88,15 +88,21 @@ writenow
 
 <br><br>
 ## 👀 실행 화면
-* 음향 기반 입력을 하는 모습
+* 음향 기반 입력을 하는 모습  
+  <img width="315" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/d2af1bad-82d4-43e0-9497-7496baaf4408">
   
-* 인식된 텍스트를 복사하여 키보드처럼 사용 가능
+* 인식된 텍스트를 복사하여 키보드처럼 사용 가능  
+  <img width="312" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/b974ee8e-f866-4647-b940-a31392c41693">
+
+* 인식된 텍스트를 메시지로 전송 가능  
+   <img width="322" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/5979d44a-d6db-4965-bf33-a0a9106f72f6">
+
+* SETTING SOS를 통해 긴급 연락처 설정  
+   <img width="313" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/fc14ab26-30de-4faf-83eb-9fae170ef072">
   
-* 인식된 텍스트를 메시지로 전송 가능
-  
-* SETTING SOS를 통해 긴급 연락처 설정
-  
-* 'sos'라고 입력했을 경우, 확인 버튼을 누르면 긴급 연락처로 전화 가능
+* 'sos'라고 입력했을 경우, 확인 버튼을 누르면 긴급 연락처로 전화 가능  
+  <img width="313" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/0043c93e-0bed-48c9-8052-d528fd44a424">
+
 
 <br>
 <img width="906" alt="image" src="https://github.com/CAP-JJANG/WriteNow/assets/92065911/e32f3f42-2cd6-4da4-8b82-fbf71987a0c1">
