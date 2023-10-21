@@ -23,10 +23,20 @@ Write Now는 이러한 불편함을 해소하기 위해 테이블을 하나의 �
 
 <br><br>
 ## 💪 주요 기능
+**[ENG]**  
+1. You can make sound-based input.
+2. You can copy recognized text and use it like a keyboard.
+3. You can send recognized text to a message.
+4. If you type 'sos', you can call an emergency contact by pressing the OK button.
+The default emergency contact is 112, and you can set up an emergency contact via 'SETTING SOS' on the start screen.
+
+<br>
+
+**[KOR]**  
 1. 음향 기반 입력을 할 수 있습니다.
 2. 인식된 텍스트를 복사하여 키보드처럼 사용할 수 있습니다.
 3. 인식된 텍스트를 메시지로 보낼 수 있습니다.
-4. sos라고 입력했을 경우, 확인 버튼을 누르면 긴급 연락처로 전화할 수 있습니다.
+4. 'sos'라고 입력했을 경우, 확인 버튼을 누르면 긴급 연락처로 전화할 수 있습니다.
    기본 긴급 연락처는 112이며, 시작 화면에서 'SETTING SOS'를 통해 긴급 연락처를 설정할 수 있습니다.
 
 <br><br>
