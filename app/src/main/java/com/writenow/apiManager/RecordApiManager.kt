@@ -5,8 +5,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.writenow.api.RecordService
+import com.writenow.event.NumberErrorEvent
 import com.writenow.model.RecordModel
 import com.writenow.model.ResultModel
+import org.greenrobot.eventbus.EventBus
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -55,12 +57,14 @@ class RecordApiManager {
                     else
                         _resultLivedata.postValue(_resultLivedata.value+result.predicted_alphabet)
                 } else {
+                    EventBus.getDefault().post(NumberErrorEvent("CODE", response.code()))
                     Log.d("postRecord_result", "FAIL CODE: "+response.code())
                 }
             }
 
             override fun onFailure(call: Call<ResultModel>, t: Throwable) {
                 t.printStackTrace()
+                EventBus.getDefault().post(NumberErrorEvent("FAIL", -1))
                 Log.d("postRecord_result", "API FAIL")
             }
         })

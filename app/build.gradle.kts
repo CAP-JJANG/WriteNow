@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    // Eventbus
+    implementation("org.greenrobot:eventbus:3.3.1")
+
     // retrofit2
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // Gson 변환기

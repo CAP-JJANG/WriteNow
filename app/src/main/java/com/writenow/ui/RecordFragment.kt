@@ -8,6 +8,7 @@ import android.media.MediaRecorder
 import android.os.Build
 import android.os.Environment
 import android.os.Handler
+import android.os.Looper
 import android.provider.ContactsContract
 import android.util.Log
 import android.view.Gravity
@@ -28,6 +29,10 @@ import com.writenow.apiManager.RecordApiManager
 import com.writenow.R
 import com.writenow.base.BaseFragment
 import com.writenow.databinding.FragmentRecordBinding
+import com.writenow.event.NumberErrorEvent
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
@@ -183,6 +188,24 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onNumberErrorEvent(event: NumberErrorEvent) {
+        if (event.case == "CODE") {
+            Toast.makeText(requireContext(),"내부 에러가 발생하였습니다. 다시 실행해주세요.", Toast.LENGTH_SHORT).show()
+        } else if (event.case == "FAIL") {
+            Toast.makeText(requireContext(),"네트워크 연결 확인 후 다시 실행해주세요.", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     // 레코딩, 파일 읽기 쓰기 권한부여
     private fun empowerRecordAudioAndWriteReadStorage() {
