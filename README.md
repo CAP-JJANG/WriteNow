@@ -50,8 +50,10 @@ The default emergency contact is 112, and you can set up an emergency contact vi
 * Gradle plugin: 8.1.1
 * JDK: jbr-17
 * Min SDK: 30
+* Target SDK: 33
 * Retrofit: 2.9.0
 * Livedata: 2.6.2
+* Eventbus: 3.3.1
 
 
 <br><br>
