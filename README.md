@@ -21,6 +21,10 @@ Write Now는 이러한 불편을 해소하기 위해 테이블을 하나의 패�
 
 이로써 작은 화면 대신, 넓은 테이블을 통해 기기에 글자를 입력할 수 있습니다.
 
+<br>
+
+**[WriteNow demoration video](https://www.youtube.com/watch?v=6eXJI5cCcZU)** 🏃🏃🏃
+
 <br><br>
 ## 💪 주요 기능
 **[ENG]**  
@@ -85,11 +89,34 @@ writenow
 ## 👟 실행 방법
 **[ENG]**  
 [Install apk files](https://github.com/CAP-JJANG/WriteNow/blob/37bfebba105667258906238c51cd72c422ac3fe0/WriteNow.apk) and run on Android 11.0 Wear OS 3 and later devices  
-
+> Installation Instructions
+> 1. On your 'wearable device', navigate to the Settings and enable Developer Mode.
+> 2. Enable ADB debugging in Developer Options.
+> 3. Navigate to Wireless Debugging and confirm the [IP address and port].
+> 4. Press 'Register a New Device' and confirm the [IP address and port].
+> 5. On your 'computer', visit the [SDK Platform Tools Release Notes](https://developer.android.com/studio/releases/platform-tools?hl=ko) and install the platform tools that match your computer's operating system.
+> 6. Place the downloaded APK file in the directory where the platform tools are installed.
+> 7. Open a terminal and navigate to the directory where the platform tools are installed.
+> 8. Enter './adb pair [IP address and port]' in the terminal, using the [IP address and port] identified in step 4.
+> 9. Enter the Wi-Fi pairing code.
+> 10. Enter './adb connect [IP address and port]' in the terminal, using the [IP address and port] identified in step 3.
+> 11. Enter './adb -s [IP address and port] install WriteNow.apk' in the terminal, using the [IP address and port] identified in step 3.
 <br>
 
 **[KOR]**  
-Android 11.0 Wear OS 3 이상 기기에 [apk 파일 설치](https://github.com/CAP-JJANG/WriteNow/blob/37bfebba105667258906238c51cd72c422ac3fe0/WriteNow.apk) 후 실행
+Android 11.0 Wear OS 3 이상 기기에 [apk 파일 설치](https://github.com/CAP-JJANG/WriteNow/blob/37bfebba105667258906238c51cd72c422ac3fe0/WriteNow.apk) 후 실행  
+> 설치 방법
+> 1. '웨어러블 기기'에서 설정에 들어가 개발자 모드를 켠다.
+> 2. 개발자 옵션에서 ADB 디버깅을 켠다.
+> 3. 무선 디버깅에 들어가 [IP 주소 및 포트]를 확인한다.
+> 4. 새 기기 등록을 눌러 [IP 주소 및 포트]를 확인한다.
+> 5. '컴퓨터'에서 [SDK 플랫폼 도구 출시 노트](https://developer.android.com/studio/releases/platform-tools?hl=ko)에 들어가 운영체제에 맞는 플랫폼 도구를 설치한다.
+> 6. 다운받은 apk 파일을 해당 플랫폼 도구가 설치된 경로에 위치시킨다.
+> 7. 터미널에서 해당 플랫폼이 설치된 경로로 들어간다.
+> 8. 4에서 확인한 [IP 주소 및 포트]를 이용하여 터미널에 './adb pair [IP 주소 및 포트]'를 입력한다.
+> 9. Wi-Fi 페어링 코드를 입력한다.
+> 10. 3에서 확인한 [IP 주소 및 포트]를 이용하여 터미널에 './ adb connect [IP 주소 및 포트]'를 입력한다.
+> 11. 3에서 확인한 [IP 주소 및 포트]를 이용하여 터미널에 './adb -s [IP 주소 및 포트] install WriteNow.apk'를 입력한다.
 
 <br><br>
 ## 👀 실행 화면
