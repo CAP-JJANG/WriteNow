@@ -8,9 +8,7 @@ import android.media.MediaRecorder
 import android.os.Build
 import android.os.Environment
 import android.os.Handler
-import android.os.Looper
 import android.provider.ContactsContract
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
@@ -21,6 +19,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.MutableLiveData
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
 import com.writenow.MyApplication.Companion.prefs
@@ -30,6 +29,7 @@ import com.writenow.R
 import com.writenow.base.BaseFragment
 import com.writenow.databinding.FragmentRecordBinding
 import com.writenow.event.NumberErrorEvent
+import com.writenow.event.NumberSuccessEvent
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -37,8 +37,6 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
-import java.time.Duration
-import java.time.LocalDateTime
 import java.util.Date
 
 class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_record) {
@@ -46,6 +44,7 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
     private var isRecording: Boolean = false
     private var filePath = ""
     private val apiManager = RecordApiManager.getInstance(context)
+    private val resultLivedata: MutableLiveData<String> = MutableLiveData<String>("")
 
     private lateinit var name:String
     private lateinit var phone:String
@@ -96,14 +95,14 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
     override fun initStartView() {
         super.initStartView()
 
-        apiManager?._resultLivedata?.postValue("")
+        resultLivedata.postValue("")
     }
 
     @RequiresApi(Build.VERSION_CODES.S)
     override fun initDataBinding() {
         super.initDataBinding()
 
-        apiManager?.resultLivedata?.observe(viewLifecycleOwner) {
+        resultLivedata.observe(viewLifecycleOwner) {
             if (isRecording) {
                 binding.tvResultingRecord.text = it
                 startRecording()
@@ -196,6 +195,12 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>(R.layout.fragment_rec
     override fun onStop() {
         super.onStop()
         EventBus.getDefault().unregister(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onNumberSuccessEvent(event: NumberSuccessEvent) {
+        if (isRecording)
+            resultLivedata.value += event.result
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

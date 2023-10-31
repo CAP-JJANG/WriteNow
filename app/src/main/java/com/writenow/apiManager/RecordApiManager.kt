@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.writenow.api.RecordService
 import com.writenow.event.NumberErrorEvent
+import com.writenow.event.NumberSuccessEvent
 import com.writenow.model.RecordModel
 import com.writenow.model.ResultModel
 import org.greenrobot.eventbus.EventBus
@@ -33,7 +34,7 @@ class RecordApiManager {
 
     init {
         retrofit = Retrofit.Builder()
-            .baseUrl("http://3.34.136.127:8000")
+            .baseUrl("http://13.209.15.61:8000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -50,12 +51,9 @@ class RecordApiManager {
             ) {
                 if (response.isSuccessful) {
                     val result: ResultModel = response.body()!!
-                    Log.d("postRecord_result", result.toString())
 
-                    if (_resultLivedata.value==null)
-                        _resultLivedata.postValue(result.predicted_alphabet)
-                    else
-                        _resultLivedata.postValue(_resultLivedata.value+result.predicted_alphabet)
+                    EventBus.getDefault().post(NumberSuccessEvent(result.predicted_alphabet))
+                    Log.d("postRecord_result", result.toString())
                 } else {
                     EventBus.getDefault().post(NumberErrorEvent("CODE", response.code()))
                     Log.d("postRecord_result", "FAIL CODE: "+response.code())
